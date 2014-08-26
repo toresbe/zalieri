@@ -1,0 +1,12 @@
+#
+# crosspoints.dat: router crosspoint label file.
+#
+# 
+#   , I or O (router input or output)
+#  / 
+# |   , Crosspoint ID number, 1-indexed
+# |  /    
+# | |   , Label, newline-terminated
+# | |  /
+# | | |
+# I:0:VTR1 out 
