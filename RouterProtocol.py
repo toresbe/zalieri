@@ -8,7 +8,8 @@
 from twisted.internet.serialport import SerialPort
 from twisted.internet.protocol import Protocol
 import struct
-#from twisted.internet import Deferred
+
+SERIAL_DEVICE = '/dev/ttyS0'
 
 class RouterProtocol (Protocol):
     # Since Twisted dataReceived events are sent subject to the serialport 
@@ -56,7 +57,7 @@ class RouterProtocol (Protocol):
     def __init__(self, service):
         # This defines the function to be called upon next byte
         self.service = service
-        SerialPort(self, "/dev/ttyS0", service.reactor, timeout=5)
+        SerialPort(self, SERIAL_DEVICE, service.reactor, timeout=5)
         self.nextFunction=self.parseByte
     
         # This is the matrix defining the relationship between incoming command
